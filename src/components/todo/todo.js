@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from './form.js';
+import TodoForm from './form-functional.js';
 import TodoList from './list.js';
 
 import './todo.scss';
