@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ToDo from './components/todo/todo.js';
+import ToDo from './components/todo/todo-functional.js';
 
 export default class App extends React.Component {
   render() {
