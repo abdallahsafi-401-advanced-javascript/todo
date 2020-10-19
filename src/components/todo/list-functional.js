@@ -1,14 +1,31 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+import { Toast, Badge } from "react-bootstrap";
 
 const TodoList = (props) => {
   return (
     <>
-      <ListGroup >
       {props.list.map((item) => (
-        <ListGroup.Item style={{cursor:'pointer'}} variant={(item.complete ? 'success' : 'danger')} key={item._id} onClick={() => props.handleComplete(item._id)} >{item.text}</ListGroup.Item>
-        ))}
-      </ListGroup>
+        <Toast  key={item._id} onClose={() => props.handleDelete(item._id)} animation={true} >
+          <Toast.Header>
+            <Badge
+              pill
+              variant={item.complete ? "success" : "danger"}
+              className="mr-2"
+              onClick={() => props.handleComplete(item._id)}
+              style={{ cursor: "pointer" }}
+            >
+              {item.complete ? "complete" : "pending"}
+            </Badge>
+            <strong className="mr-auto">{item.assignee}</strong>
+          </Toast.Header>
+          <Toast.Body>
+            <p>{item.text}</p>
+            <p className="d-flex justify-content-end">
+              <small>Difficulty: {item.difficulty}</small>
+            </p>
+          </Toast.Body>
+        </Toast>
+      ))}
     </>
   );
 };
