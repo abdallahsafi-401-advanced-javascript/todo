@@ -1,6 +1,6 @@
 import React from "react";
 
-import ToDo from "./components/todo/todo-functional.js";
+import ToDo from "./components/todo/todo-connected.js";
 import { Nav , Navbar} from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
