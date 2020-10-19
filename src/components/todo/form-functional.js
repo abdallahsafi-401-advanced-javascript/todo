@@ -1,23 +1,25 @@
-// import React from 'react';
-import React, { useState } from "react";
+import React from 'react';
+// import React, { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import useForm from "../../hooks/useForm";
 
 const TodoForm = (props) => {
-  const [item, setItem] = useState({});
+  // const [item, setItem] = useState({});
 
-  const handleInputChange = (e) => {
-    setItem({ ...item, [e.target.name]: e.target.value });
-  };
+  const [handleInputChange, handleSubmit] = useForm(listForm);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    props.handleSubmit(item);
-    setItem(item, {});
-  };
+  function listForm(value) {
+    props.handleSubmit(value);
+  }
+
   return (
     <>
-      <Card bg="light" text="dark" style={{ width: "18rem" }} className="mb-2 w-75">
+      <Card
+        bg="light"
+        text="dark"
+        style={{ width: "18rem" }}
+        className="mb-2 w-75"
+      >
         <Card.Header>Add Item</Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
@@ -30,8 +32,6 @@ const TodoForm = (props) => {
                 onChange={handleInputChange}
               />
             </Form.Group>
-
-          
 
             <Form.Group controlId="formBasicText2">
               <Form.Label>Assigned to</Form.Label>
