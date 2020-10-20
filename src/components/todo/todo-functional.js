@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import TodoForm from "./form-functional.js";
 import TodoList from "./list-functional.js";
 import { Container , Row, Col} from "react-bootstrap";
@@ -8,6 +8,7 @@ import "./todo.scss";
 
 const ToDo = () => {
   const [list, setList] = useState([]);
+
 
   const _addItem = (item) => {
     item._id = Math.random();
