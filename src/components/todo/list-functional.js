@@ -6,18 +6,8 @@ const TodoList = (props) => {
   const context = useContext(TodoContext);
   const [active, setActive] = useState(1);
   let start = ((active - 1) * context.numItems);
-  //start  1 => 0
-  // end => 3
-  // start 2 => 3
-  // end 6
-  // 3 => 6
-
   let end = context.numItems + ((active - 1) * context.numItems);
-  // let list = props.list.splice(((active - 1) * context.numItems) ,context.numItems);
-  let list = props.list.slice(start ,end)
-
-  // let list = props.list;
-
+  let list = props.list.slice(start ,end);
   let pagItems = [];
   const handlePagination = (e) =>{
     console.log(e.target.text)
