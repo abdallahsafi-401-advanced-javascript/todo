@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default (callback) => {
+export default () => {
 
   const [data, setData] = useState({});
 
-  const request = (method, url, headers, data = "") => {
+
+  const request = (method, url, headers = null, data = "") => {
+
     axios({
       method: method,
       url: url,
@@ -19,5 +21,5 @@ export default (callback) => {
       .catch(console.error);
   };
 
-  return [request];
+  return [data, request];
 };
